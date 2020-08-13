@@ -1,0 +1,41 @@
+.card {
+  width: 360px;
+  float: left;
+  cursor: pointer;
+}
+
+.card .preview {
+  width: 360px;
+  height: 275px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 10px;
+}
+
+.cardHeading {
+  font-family: YS Text;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 129.14%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #000000;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.cardText {
+  font-family: YS Text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 129.14%;
+  letter-spacing: 0.25px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #000000;
+  color: #000000;
+  margin-left: 15px;
+}

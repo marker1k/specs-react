@@ -1,0 +1,47 @@
+.card:nth-child(even) {
+  margin-left: 60px;
+}
+
+.row {
+  overflow: auto;
+  margin-bottom: 100px;
+}
+
+.heading {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  align-items: center;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #000000;
+}
+
+@media only screen and (max-width: 1193px) {
+  .card {
+    float: none;
+    margin: 0 auto;
+  }
+  .card:nth-child(even) {
+    margin-left: auto;
+  }
+  .heading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .leftMenu {
+    display: none;
+  }
+  .viewport {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  
+}

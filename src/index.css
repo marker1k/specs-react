@@ -11,3 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.footer .copyright, .footer a {
+  width: 110px;
+  height: 22px;
+  left: 39px;
+  top: 689px;
+
+  font-family: YS Text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15.9297px;
+  line-height: 21px;
+/* identical to box height, or 133% */
+  color: #000000;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.leftMenu {
+  position: absolute;
+  margin-top: 37px;
+  margin-left: 15px;
+}
+
+.viewport {
+  width: 70%;
+  height: auto;
+  overflow: auto;
+  padding-top: 32px;
+  margin-bottom: 200px;
+  margin-left: 30%;
+  margin-right: auto;
+}
+
+.topMenuButtons {
+  margin-top: 18px;
+  float: right;
+  margin-right: 44px;
+}
