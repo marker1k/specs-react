@@ -2,6 +2,7 @@
   "name": "specs_react",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@bem-react/classname": "1.5.8",
     "@bem-react/core": "3.0.0",

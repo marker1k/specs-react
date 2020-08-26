@@ -11,22 +11,6 @@ import Banner from './Banner';
 
 configureRootTheme({ theme });
 
-
-
-const topMenuStyles = {
-  width: '100%',
-  height: '75px',
-  background: '#FFFFFF',
-  boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.15)'
-};
-
-const topMenuButtonsStyles = {
-  // lineHeight: '70px'
-  marginTop: '18px',
-  float: 'right',
-  marginRight: '44px'
-};
-
 const logoStyles = {
   backgroundImage: "url('https://avatars.mds.yandex.net/get-adfox-content/2462621/200803_adfox_1393261_8c08f5cbf441c7f3a9ff9d0d195d6a08_logo_adfox.png/optimize.webp')",
   width: '107px',
@@ -34,7 +18,6 @@ const logoStyles = {
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'contain',
   position: 'absolute',
-  marginTop: '24px',
   marginLeft: '44px'
 };
 
@@ -42,7 +25,7 @@ const rowStyles = {
   overflow: 'auto'
 };
 
-const listener = e => {
+const menuSticky = e => {
   var elem = document.querySelector('#topMenu');
   var top = elem.getBoundingClientRect().top;
   if (top < -75) {
@@ -54,20 +37,68 @@ const listener = e => {
   }
 };
 
+const isElementXPercentInViewport = function(el, percentVisible) {
+  let
+    rect = el.getBoundingClientRect(),
+    windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+
+  return !(
+    Math.floor(100 - (((rect.top >= 0 ? 0 : rect.top) / +-(rect.height / 1)) * 100)) < percentVisible ||
+    Math.floor(100 - ((rect.bottom - windowHeight) / rect.height) * 100) < percentVisible
+  )
+};
+
+
 function App() {
+  const onScrollMenuHandle = e => {
+    if (document.querySelector('#formatList') != null) {
+      // var baseFormats = document.querySelector('#baseFormats').getBoundingClientRect();
+      // var screenGlide = document.querySelector('#screenGlide').getBoundingClientRect();
+      // console.log('Base Formats: ' + baseFormats);
+      // console.log('screenGlide: ' + screenGlide);
+      if (isElementXPercentInViewport(document.querySelector('#baseFormats'), 15)) {
+        setValue('a');
+      }
+
+      if (isElementXPercentInViewport(document.querySelector('#screenGlide'), 15)) {
+        setValue('b');
+      }
+
+      if (isElementXPercentInViewport(document.querySelector('#video'), 15)) {
+        setValue('c');
+      }
+
+      if (isElementXPercentInViewport(document.querySelector('#background'), 15)) {
+        setValue('d');
+      }
+
+      if (isElementXPercentInViewport(document.querySelector('#headerBidding'), 15)) {
+        setValue('e');
+      }
+
+    }
+  };
+
+
   const handleClick = function(data) {
       setVisible(true);
       selectBanner(data);
-      setTimeout(function(){
-        document.getElementById("innerHeading").scrollIntoView({block: "start", behavior: "smooth"});
-      }, 200);
+      document.querySelector("#topMenu").scrollIntoView({block: "start", behavior: "auto"});
     };
+
+    const allFormatsClickHandler = function() {
+        setVisible(false);
+        document.querySelector("#topMenu").scrollIntoView({block: "start", behavior: "auto"});
+      };
+
 
 
   useEffect(() => {
-    window.addEventListener("scroll", listener);
+    window.addEventListener("scroll", menuSticky);
+    window.addEventListener("scroll", onScrollMenuHandle);
     return () => {
-      window.removeEventListener("scroll", listener);
+      window.removeEventListener("scroll", menuSticky);
+      window.removeEventListener("scroll", onScrollMenuHandle);
     };
   });
 
@@ -78,20 +109,21 @@ function App() {
   return (
     <div>
     {/* Top menu start */}
-    <div style={topMenuStyles} id="topMenu">
-      <div style={logoStyles}>
+    <div className="topMenu" id="topMenu">
+      <div className="logo" style={logoStyles}>
       </div>
+      <div className="topMenuButtons">
       <Button
-        className="topMenuButtons"
+        className="first link"
         type="link"
         url="https://yandex.ru/support/adfox-sites/"
         target="_blank"
         theme="link"
         size="m">
-        Общая документация к системе
+        Документация
       </Button>
       <Button
-        className="topMenuButtons"
+        className="second link"
         type="link"
         url="https://adfox.yandex.ru/"
         target="_blank"
@@ -99,21 +131,20 @@ function App() {
         size="m">
         Вход для клиентов
       </Button>
+      </div>
     </div>
     {/* Top menu end */}
 
   <div className="wrapper">
   {/* Left menu start */}
-  <div
-    className="leftMenu"
-  >
+  <div className="leftMenu">
     <Menu
       size="m"
       theme="normal"
       value={value}
       items={[
         { value: 'a', content: 'Базовые форматы' },
-        { value: 'b', content: 'Screenglide, expandable, fullscreen' },
+        { value: 'b', content: 'Интерактивные форматы' },
         { value: 'c', content: 'Video' },
         { value: 'd', content: 'Background' },
         { value: 'e', content: 'Header Bidding' }
@@ -123,7 +154,7 @@ function App() {
           setVisible(false);
           selectBanner('');
         }
-        setValue(event.target.value);
+
         switch (event.target.value) {
           case 'a':
           setTimeout(function(){
@@ -149,11 +180,22 @@ function App() {
           }, 200);
           break;
 
+          case 'e':
+          setTimeout(function(){
+            document.getElementById("headerBidding").scrollIntoView({block: "start", behavior: "smooth"});
+          }, 200);
+          break;
+
           default:
           alert( "Нет таких значений" );
         }
       }}
     />
+    <div className="footer">
+      <button className="footerButton" onClick={allFormatsClickHandler}>Все форматы</button>
+      <div className="contact"><a className="link" href="mailto:adfox@support.yandex.ru">Обратная связь</a></div>
+      <div className="copyright">{`© Яндекс ${new Date().getFullYear()}`}</div>
+    </div>
     </div>
     {/* Left menu end */}
 
@@ -165,17 +207,6 @@ function App() {
     {/* viewport end */}
     </div>
 
-    <div
-      className="footer"
-      style={{
-        marginLeft: '77px',
-        marginBottom: '50px'
-      }}
-    >
-      <div className="contact"><a href="mailto:adfox@support.yandex.ru">Обратная связь</a></div>
-      <div className="copyright">{`© Яндекс ${new Date().getFullYear()}`}</div>
-      <div></div>
-    </div>
     </div>
   );
 }

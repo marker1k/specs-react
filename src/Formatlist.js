@@ -14,6 +14,7 @@ import banner_fullscreen_video_preview from './img/previews/fullscreen_html5_vid
 import banner_video_preview from './img/previews/banner_viddeo.png';
 import banner_video_vpaid_preview from './img/previews/fullscreen_html5_2.png';
 import banner_background_preview from './img/previews/background_html5.png';
+import header_bidding_preview from './img/previews/Header_bidding.png';
 
 
 const headingStyleBottom = {
@@ -30,13 +31,14 @@ const headingStyleBottom = {
 class Formatlist extends React.Component {
   render() {
     return (
-      <div>
-      <h1 style={{width: '324px'}}className="heading" id="baseFormats">Базовые форматы</h1>
+      <div id="formatList">
+      <div id="baseFormats">
+      <h1 style={{width: '324px'}}className="heading">Базовые форматы</h1>
       <div className="row">
         <Card
           backgroundImage={`url(${banner_image_preview})`}
           heading="Banner Image"
-          text="Баннер, который отображает картинку со ссылкой."
+          text="Баннер, который отображает изображение со ссылкой."
           clickFunction={this.props.changeView}
         />
 
@@ -47,7 +49,9 @@ class Formatlist extends React.Component {
           clickFunction={this.props.changeView}
         />
       </div>
-      <h1 style={{width: '380px'}} className="heading" id="screenGlide">Screenglide, expandable, fullscreen</h1>
+      </div>
+      <div id="screenGlide">
+      <h1 style={{width: '380px'}} className="heading">Интерактивные форматы</h1>
       <div className="row">
         <Card
           backgroundImage={`url(${banner_screenglide_html5_preview})`}
@@ -101,7 +105,9 @@ class Formatlist extends React.Component {
           clickFunction={this.props.changeView}
         />
       </div>
-      <h1 style={{width: '100px'}} className="heading" id="video">Video</h1>
+      </div>
+      <div id="video">
+      <h1 style={{width: '100px'}} className="heading">Video</h1>
       <div className="row">
         <Card
           backgroundImage={`url(${banner_video_preview})`}
@@ -125,7 +131,9 @@ class Formatlist extends React.Component {
           clickFunction={this.props.changeView}
         />
       </div>
-      <h1 style={{width: '203px'}} className="heading" id="background">Background</h1>
+      </div>
+      <div id="background">
+      <h1 style={{width: '203px'}} className="heading">Background</h1>
       <div className="row">
         <Card
           backgroundImage={`url(${banner_background_preview})`}
@@ -134,7 +142,18 @@ class Formatlist extends React.Component {
           clickFunction={this.props.changeView}
         />
       </div>
-
+      </div>
+      <div id="headerBidding">
+        <h1 style={{width: '260px'}} className="heading">Header Bidding</h1>
+        <div className="row">
+          <Card
+            backgroundImage={`url(${header_bidding_preview})`}
+            heading="Header Bidding"
+            text="Примеры баннеров сторонних монетизаторов."
+            clickFunction={this.props.changeView}
+          />
+        </div>
+      </div>
 
     </div>
     )
