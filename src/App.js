@@ -52,27 +52,23 @@ const isElementXPercentInViewport = function(el, percentVisible) {
 function App() {
   const onScrollMenuHandle = e => {
     if (document.querySelector('#formatList') != null) {
-      // var baseFormats = document.querySelector('#baseFormats').getBoundingClientRect();
-      // var screenGlide = document.querySelector('#screenGlide').getBoundingClientRect();
-      // console.log('Base Formats: ' + baseFormats);
-      // console.log('screenGlide: ' + screenGlide);
-      if (isElementXPercentInViewport(document.querySelector('#baseFormats'), 15)) {
+      if (isElementXPercentInViewport(document.querySelector('#baseFormats'), 10)) {
         setValue('a');
       }
 
-      if (isElementXPercentInViewport(document.querySelector('#screenGlide'), 15)) {
+      if (isElementXPercentInViewport(document.querySelector('#screenGlide'), 10)) {
         setValue('b');
       }
 
-      if (isElementXPercentInViewport(document.querySelector('#video'), 15)) {
+      if (isElementXPercentInViewport(document.querySelector('#video'), 10)) {
         setValue('c');
       }
 
-      if (isElementXPercentInViewport(document.querySelector('#background'), 15)) {
+      if (isElementXPercentInViewport(document.querySelector('#background'), 40)) {
         setValue('d');
       }
 
-      if (isElementXPercentInViewport(document.querySelector('#headerBidding'), 15)) {
+      if (isElementXPercentInViewport(document.querySelector('#headerBidding'), 40)) {
         setValue('e');
       }
 

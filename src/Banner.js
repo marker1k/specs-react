@@ -5,7 +5,7 @@ import external_link from './img/external_link.svg';
 import preview_desktop_icon from './img/preview_desktop_icon.svg';
 import preview_mobile_icon from './img/preview_mobile_icon.svg';
 
-const desktopOnly = ['Screenglide HTML5 с видео', 'Banner Video', 'Background HTML5'];
+const desktopOnly = ['Screenglide HTML5 с видео', 'Banner Video', 'Background HTML5', 'Video VPAID VAST 3.0 Viewability'];
 
 const externalLinkIcon = {
   backgroundImage: `url(${external_link})`,
