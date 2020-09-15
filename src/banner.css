@@ -153,15 +153,3 @@ color: #000000;
     display: none;
   }
 }
-
-
-
-/* @media only screen and (max-width: 1200px) {
-  .leftMenu {
-    display: none;
-  }
-  .viewport {
-    margin-left: auto;
-    width: 400px;
-  }
-} */

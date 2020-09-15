@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './card.css';
-import external_link from './img/external_link.svg';
 
 const externalLinkIcon = {
-  backgroundImage: `url(${external_link})`,
+  backgroundImage: `url(https://banners.adfox.ru/200831/adfox/1422758/040e1b7f4416dd99808174abe88c74c8_external_link.svg)`,
   width: '19px',
   height: '19px',
   display: 'inline-block',
   marginLeft: '8px',
+  position: 'relative',
+  top: '4px'
 };
 
 class Card extends React.Component {
@@ -29,59 +30,45 @@ class Card extends React.Component {
     switch (name) {
       case 'Banner Image':
         return 'https://yandex.ru/promo/yan/adfox-specs/banner-image';
-      break;
 
       case 'Banner HTML5':
         return 'https://yandex.ru/promo/yan/adfox-specs/banner-html5';
-      break;
 
       case 'Screenglide HTML5':
         return 'https://yandex.ru/promo/yan/adfox-specs/screenglide-html5';
-      break;
 
       case 'Screenglide HTML5 с видео':
         return 'https://yandex.ru/promo/yan/adfox-specs/screenglide-html5-video';
-      break;
 
       case 'Banner Interscroller HTML5':
         return 'https://yandex.ru/promo/yan/adfox-specs/banner-interscroller';
-      break;
 
       case 'BannerLine HTML5':
         return 'https://yandex.ru/promo/yan/adfox-specs/banner-line';
-      break;
 
       case 'Banner Slider':
         return 'https://yandex.ru/promo/yan/adfox-specs/banner-slider';
-      break;
 
       case 'Fullscreen HTML5':
         return 'https://yandex.ru/promo/yan/adfox-specs/banner-fullscreen';
-      break;
 
       case 'Fullscreen HTML5 с видео':
         return 'https://yandex.ru/promo/yan/adfox-specs/banner-fullscreen-video';
-      break;
 
       case 'Banner Video':
         return 'https://yandex.ru/promo/yan/adfox-specs/banner-video';
-      break;
 
       case 'Video VPAID VAST 3.0 Viewability':
         return 'https://yandex.ru/promo/yan/adfox-specs/video-vpaid';
-      break;
 
       case 'InPage video':
         return 'https://yandex.ru/promo/yan/adfox-specs/banner-inpage';
-      break;
 
       case 'Background HTML5':
-        return 'https://yandex.ru/promo/yan/adfox-specs/screenglide-html5';
-      break;
+        return 'https://yandex.ru/promo/yan/adfox-specs/banner-background-html5';
 
       case 'Header Bidding':
         return 'https://yandex.ru/promo/yan/adfox-specs/header-bidding';
-      break;
 
       default:
         return 'https://ya.ru/';
@@ -92,65 +79,50 @@ class Card extends React.Component {
     switch (name) {
       case 'Banner Image':
         return 'https://yandex.ru/support/adfox-specs/banner-image.html';
-      break;
 
       case 'Banner HTML5':
         return 'https://yandex.ru/support/adfox-specs/banner-html5.html';
-      break;
 
       case 'Screenglide HTML5':
         return 'https://yandex.ru/support/adfox-specs/screenglide-html5.html';
-      break;
 
       case 'Screenglide HTML5 с видео':
         return 'https://yandex.ru/support/adfox-specs/screenglide-html5-with-video.html';
-      break;
 
       case 'Banner Interscroller HTML5':
         return 'https://yandex.ru/support/adfox-specs/interscroller.html';
-      break;
 
       case 'BannerLine HTML5':
         return 'https://yandex.ru/support/adfox-specs/bannerline-html5.html';
-      break;
 
       case 'Banner Slider':
         return 'https://yandex.ru/support/adfox-specs/banner-slider.html';
-      break;
 
       case 'Fullscreen HTML5':
         return 'https://yandex.ru/support/adfox-specs/fullscreen-html5.html';
-      break;
 
       case 'Fullscreen HTML5 с видео':
         return 'https://yandex.ru/support/adfox-specs/fullscreen-html5-with-video.html';
-      break;
 
       case 'Banner Video':
         return 'https://yandex.ru/support/adfox-specs/banner-video.html';
-      break;
 
       case 'Video VPAID VAST 3.0 Viewability':
         return 'https://yandex.ru/support/adfox-specs/video-vpaid.html';
-      break;
 
       case 'InPage video':
         return 'https://yandex.ru/support/adfox-specs/inpage.html';
-      break;
 
       case 'Background HTML5':
         return 'https://yandex.ru/support/adfox-specs/background-html5.html';
-      break;
 
       case 'Header Bidding':
         return 'https://yandex.ru/support/adfox-sites/monetization/header-bidding.html';
-      break;
 
       default:
         return 'https://ya.ru/';
     }
   };
-
 
   render() {
     return (
@@ -169,12 +141,13 @@ class Card extends React.Component {
       <div>
         {window.innerWidth < 857 &&
           <div className="mobileDocumentationLink cardText">
+            <br />
             Подробнее про настройку читайте в&nbsp;
             <span style={{
               display: 'flex',
               alignItems: 'center'
             }}>
-              <a className="innerLink" href={this.generateHelpUrl(this.props.heading)} target="_blank">документации</a><div style={externalLinkIcon}></div>
+              <a className="innerLink" href={this.generateHelpUrl(this.props.heading)} target="_blank" rel="noopener noreferrer">документации<div style={externalLinkIcon}></div></a>
             </span>
         </div>}
       </div>

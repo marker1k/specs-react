@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import closeButton from './img/close.svg';
+import React from 'react';
 
 const previewStyle = {
   color: '#000000',
@@ -13,15 +12,14 @@ const previewStyle = {
   top: '0px',
   left: '0px',
   opacity: '1',
-  cursor: 'pointer',
-  zIndex: '1'
+  cursor: 'pointer'
 };
 
 const closeButtonStyle = {
   right: '0',
   cursor: 'pointer',
   width: '50px',
-  backgroundImage: `url(${closeButton})`,
+  backgroundImage: `url(https://banners.adfox.ru/200831/adfox/1422758/525d2205736349b450e27e04efe912e0_close.svg)`,
   backgroundRepeat: 'no-repeat',
   position: 'absolute',
   top: '0',
@@ -49,14 +47,18 @@ class Preview extends React.Component {
           style={closeButtonStyle}>
         </div>
         <iframe
+          title="previewFrame"
           style={{
-            height: '600px',
+            height: this.props.height,
             background: 'white',
-            marginTop: '60px'
+            marginTop: this.props.marginTop,
+            borderRadius: '15px',
+            padding: this.props.padding
           }}
             src={this.props.url}
             frameBorder="0"
             width={this.props.width}
+            height={this.props.height}
           >
         </iframe>
       </div>
